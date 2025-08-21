@@ -6,6 +6,12 @@ buildscript {
         targetSdkVersion = 35
         ndkVersion = "27.1.12297006"
         kotlinVersion = "2.1.20"
+        
+        // Document picker overrides
+        DocumentPicker_compileSdkVersion = 35
+        DocumentPicker_buildToolsVersion = "35.0.0"
+        DocumentPicker_minSdkVersion = 24
+        DocumentPicker_targetSdkVersion = 35
     }
     repositories {
         google()

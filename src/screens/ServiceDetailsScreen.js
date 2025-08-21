@@ -6,15 +6,13 @@ import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
 import Header from '../components/Header';
 import ProgressIndicator from '../components/ProgressIndicator';
-import PricingCalculator from '../components/PricingCalculator';
+import ConsultationPricing from '../components/ConsultationPricing';
+
 
 const ServiceDetailsScreen = ({ navigation }) => {
   const [serviceRadius, setServiceRadius] = useState('');
-  const [pricingData, setPricingData] = useState({
-    doctorEarning: 0,
-    patientPrice: 0,
-    platformFee: 200
-  });
+  const [pricingData, setPricingData] = useState({});
+
   const [fadeAnim] = useState(new Animated.Value(0));
   const [slideAnim] = useState(new Animated.Value(50));
 
@@ -33,7 +31,9 @@ const ServiceDetailsScreen = ({ navigation }) => {
     ]).start();
   }, [fadeAnim, slideAnim]);
 
-  const handlePriceChange = (data) => {
+
+
+  const handlePricingChange = (data) => {
     setPricingData(data);
   };
 
@@ -42,15 +42,24 @@ const ServiceDetailsScreen = ({ navigation }) => {
       Alert.alert('Error', 'Please enter service radius');
       return false;
     }
-    if (pricingData.doctorEarning === 0 && pricingData.patientPrice === 0) {
-      Alert.alert('Error', 'Please set your pricing');
-      return false;
-    }
+
     const radius = parseFloat(serviceRadius);
     if (isNaN(radius) || radius <= 0) {
       Alert.alert('Error', 'Please enter a valid service radius');
       return false;
     }
+
+    // Check if at least one consultation type is selected with pricing
+    const hasHomePricing = pricingData.homeConsultation?.enabled && 
+      (pricingData.homeConsultation?.earnings > 0 || pricingData.homeConsultation?.patientPrice > 0);
+    const hasVideoPricing = pricingData.videoConsultation?.enabled && 
+      (pricingData.videoConsultation?.earnings > 0 || pricingData.videoConsultation?.patientPrice > 0);
+    
+    if (!hasHomePricing && !hasVideoPricing) {
+      Alert.alert('Error', 'Please set pricing for at least one consultation type');
+      return false;
+    }
+
     return true;
   };
 
@@ -82,7 +91,9 @@ const ServiceDetailsScreen = ({ navigation }) => {
             keyboardType="numeric"
           />
           
-          <PricingCalculator onPriceChange={handlePriceChange} />
+          <ConsultationPricing onPricingChange={handlePricingChange} />
+          
+
           
           <CustomButton
             title="Next ->"
