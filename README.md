@@ -1,97 +1,93 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# MedGoPlus (demo)  
 
-# Getting Started
+MedGoPlus (demo) is a modern, professional React Native application designed for healthcare provider onboarding and registration. It features a seamless, multi-step registration flow to collect user details, professional credentials, service offerings, and banking information.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🚀 Features
 
-## Step 1: Start Metro
+- **Authentication**: Secure login and account creation with OTP verification.
+- **Structured Onboarding**:
+  - **User Information**: Personal details and contact information.
+  - **Professional Info**: Academic and professional credentials.
+  - **Service Details**: Customization of services offered.
+  - **Banking Details**: Secure collection of payout information.
+- **Dynamic Navigation**: Smooth transitions between steps powered by React Navigation.
+- **Responsive Design**: Optimized for both Android and iOS devices.
+- **Local State Management**: Efficient handling of multi-step form data.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🛠️ Technology Stack
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Core**: [React Native](https://reactnative.dev/) (0.80.2)
+- **Language**: JavaScript/TypeScript
+- **Navigation**: [React Navigation Stack](https://reactnavigation.org/docs/stack-navigator/)
+- **UI Components**: Custom components with `react-native-safe-area-context` and `react-native-gesture-handler`
+- **Utility**: `react-native-image-picker` for document/photo uploads
+- **Styling**: Centralized theme management in `src/theme`
 
-```sh
-# Using npm
-npm start
+## 📂 Project Structure
 
-# OR using Yarn
-yarn start
+```text
+src/
+├── components/     # Reusable UI components
+├── navigation/     # Navigation configuration
+├── screens/        # Screen-level components (Login, Registration steps, etc.)
+├── services/       # API and external services logic
+├── theme/          # Design system, colors, and global styles
+└── utils/          # Helper functions and constants
 ```
 
-## Step 2: Build and run your app
+## 🏁 Getting Started
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Prerequisites
 
-### Android
+- [Node.js](https://nodejs.org/) (>= 18)
+- [React Native Environment Setup](https://reactnative.dev/docs/environment-setup)
+- Android Studio (for Android) / Xcode (for iOS)
 
-```sh
-# Using npm
-npm run android
+### Installation
 
-# OR using Yarn
-yarn android
-```
+1.  **Clone the repository**:
+    ```sh
+    git clone [repository-url]
+    cd login
+    ```
 
-### iOS
+2.  **Install dependencies**:
+    ```sh
+    npm install
+    ```
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+3.  **iOS specific installation** (macOS only):
+    ```sh
+    cd ios && pod install && cd ..
+    ```
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### Running the App
 
-```sh
-bundle install
-```
+1.  **Start Metro Bundler**:
+    ```sh
+    npm start
+    ```
 
-Then, and every time you update your native dependencies, run:
+2.  **Run on Android**:
+    ```sh
+    npm run android
+    ```
 
-```sh
-bundle exec pod install
-```
+3.  **Run on iOS**:
+    ```sh
+    npm run ios
+    ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 📜 Scripts
 
-```sh
-# Using npm
-npm run ios
+- `npm start`: Starts the Metro bundler.
+- `npm run android`: Compiles and runs the app on an Android emulator or device.
+- `npm run ios`: Compiles and runs the app on an iOS simulator or device.
+- `npm run lint`: Runs ESLint for code quality checks.
+- `npm test`: Executes unit tests using Jest.
 
-# OR using Yarn
-yarn ios
-```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## 📄 License
 
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project is licensed under the MIT License.
